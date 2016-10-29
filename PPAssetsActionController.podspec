@@ -9,7 +9,7 @@ User can control every aspect of PPAssetsActionController's style.
                        DESC
 
   s.homepage         = 'https://github.com/pantuspavel/PPAssetsActionController'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots     = 'https://github.com/pantuspavel/PPAssetsActionController/blob/master/Example/Tests/ReferenceImages/Tests/Default_Configuration__3_options__regular_height_displayed_correctly%402x.png', 'https://github.com/pantuspavel/PPAssetsActionController/blob/master/Example/Tests/ReferenceImages/Tests/Default_Configuration__3_options__expanded_height_displayed_correctly%402x.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Pavel Pantus' => 'pantusp@gmail.com' }
   s.source           = { :git => 'https://github.com/pantuspavel/PPAssetsActionController.git', :tag => s.version.to_s }
