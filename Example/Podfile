@@ -1,14 +1,21 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
 use_frameworks!
 
+def assets_picker
+    pod 'PPAssetsActionController', :path => '../'
+end
+
+
 target 'PPAssetsActionController_Example' do
-  pod 'PPAssetsActionController', :path => '../'
+  assets_picker
+end
 
-  target 'PPAssetsActionController_Tests' do
-    inherit! :search_paths
-
-    pod 'Quick', '~> 0.8'
-  pod 'Nimble', '~> 3.0'
+target 'PPAssetsActionController_Tests' do
+  assets_picker
+  pod 'KIF'
+  pod 'Quick'
+  pod 'Nimble'
   pod 'FBSnapshotTestCase'
   pod 'Nimble-Snapshots'
-  end
 end

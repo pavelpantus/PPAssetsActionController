@@ -1,0 +1,54 @@
+
+/* Class = "UITableViewCell"; accessibilityLabel = "custom-background-color-5-options"; ObjectID = "2SP-gk-6To"; */
+"2SP-gk-6To.accessibilityLabel" = "custom-background-color-5-options";
+
+/* Class = "UITableViewCell"; accessibilityLabel = "custom-font-2-options"; ObjectID = "2zA-16-yeN"; */
+"2zA-16-yeN.accessibilityLabel" = "custom-font-2-options";
+
+/* Class = "UILabel"; text = "Custom Preview Height, 1 option"; ObjectID = "7jL-QK-DZv"; */
+"7jL-QK-DZv.text" = "Custom Preview Height, 1 option";
+
+/* Class = "UILabel"; text = "Default, no options"; ObjectID = "9bR-6i-vBY"; */
+"9bR-6i-vBY.text" = "Default, no options";
+
+/* Class = "UITableViewCell"; accessibilityLabel = "custom-height-3-options"; ObjectID = "9zk-4q-M7X"; */
+"9zk-4q-M7X.accessibilityLabel" = "custom-height-3-options";
+
+/* Class = "UILabel"; accessibilityLabel = "custom-background-color-5-options"; ObjectID = "AXN-TJ-sxF"; */
+"AXN-TJ-sxF.accessibilityLabel" = "custom-background-color-5-options";
+
+/* Class = "UILabel"; text = "Custom Background Color, 5 options"; ObjectID = "AXN-TJ-sxF"; */
+"AXN-TJ-sxF.text" = "Custom Background Color, 5 options";
+
+/* Class = "UILabel"; text = "Custom Section Spacing, 4 options"; ObjectID = "Fkz-jz-nk1"; */
+"Fkz-jz-nk1.text" = "Custom Section Spacing, 4 options";
+
+/* Class = "UILabel"; text = "Custom Height, 3 options"; ObjectID = "GJ7-fm-oNL"; */
+"GJ7-fm-oNL.text" = "Custom Height, 3 options";
+
+/* Class = "UITableViewCell"; accessibilityLabel = "default-3-options"; ObjectID = "Hyd-CZ-JjE"; */
+"Hyd-CZ-JjE.accessibilityLabel" = "default-3-options";
+
+/* Class = "UILabel"; text = "Custom Font, 2 options"; ObjectID = "LI4-Te-zgX"; */
+"LI4-Te-zgX.text" = "Custom Font, 2 options";
+
+/* Class = "UITableViewCell"; accessibilityLabel = "default-no-options"; ObjectID = "OJq-Ox-weS"; */
+"OJq-Ox-weS.accessibilityLabel" = "default-no-options";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "P05-TF-mUD"; */
+"P05-TF-mUD.title" = "Root View Controller";
+
+/* Class = "UITableViewCell"; accessibilityLabel = "custom-inset-4-options"; ObjectID = "VTc-I0-G3N"; */
+"VTc-I0-G3N.accessibilityLabel" = "custom-inset-4-options";
+
+/* Class = "UITableViewCell"; accessibilityLabel = "custom-preview-height-1-option"; ObjectID = "ZSM-RG-Wa1"; */
+"ZSM-RG-Wa1.accessibilityLabel" = "custom-preview-height-1-option";
+
+/* Class = "UILabel"; text = "Default, 3 options"; ObjectID = "hmP-cm-wK0"; */
+"hmP-cm-wK0.text" = "Default, 3 options";
+
+/* Class = "UITableViewCell"; accessibilityLabel = "custom-section-spacing-4-options"; ObjectID = "upR-tz-dX6"; */
+"upR-tz-dX6.accessibilityLabel" = "custom-section-spacing-4-options";
+
+/* Class = "UILabel"; text = "Custom Inset, 4 options"; ObjectID = "wBb-iK-bbc"; */
+"wBb-iK-bbc.text" = "Custom Inset, 4 options";

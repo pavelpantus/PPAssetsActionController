@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Send %d Items</key>
+    <dict>
+        <key>NSStringLocalizedFormatKey</key>
+        <string>%#@Items@</string>
+        <key>Items</key>
+        <dict>
+            <key>NSStringFormatSpecTypeKey</key>
+            <string>NSStringPluralRuleType</string>
+            <key>NSStringFormatValueTypeKey</key>
+            <string>d</string>
+            <key>zero</key>
+            <string>Послать %d Элементов</string>
+            <key>one</key>
+            <string>Послать %d Элемент</string>
+            <key>two</key>
+            <string>Послать %d Элемента</string>
+            <key>few</key>
+            <string>Послать %d Элемента</string>
+            <key>many</key>
+            <string>Послать %d Элементов</string>
+            <key>other</key>
+            <string>Послать %d Элементов</string>
+        </dict>
+    </dict>
+</dict>
+</plist>
