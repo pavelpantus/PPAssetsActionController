@@ -41,6 +41,7 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "default-3-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
+                self.tester().acknowledgeSystemAlert()
                 expect(window).to( haveValidSnapshot() )
             }
 
