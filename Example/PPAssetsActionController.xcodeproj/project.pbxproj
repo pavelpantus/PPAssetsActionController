@@ -13,7 +13,6 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		E28D4923345A6EF8DD23DAA4 /* Pods_PPAssetsActionController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4F882AA34FB0B0F31D00BB /* Pods_PPAssetsActionController_Tests.framework */; };
-		E98B99CF1DC4D2CD00E6A671 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E98B99CE1DC4D2CD00E6A671 /* Podfile */; };
 		E9F9372D1DC535AD00BCD682 /* CustomizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F9372C1DC535AD00BCD682 /* CustomizationsViewController.swift */; };
 		E9F937371DC5583A00BCD682 /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9F937331DC5583A00BCD682 /* LaunchScreen.strings */; };
 		E9F937381DC5583A00BCD682 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9F937351DC5583A00BCD682 /* Main.strings */; };
@@ -55,6 +54,7 @@
 		C596F9FE4838439B218C5A66 /* PPAssetsActionController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PPAssetsActionController.podspec; path = ../PPAssetsActionController.podspec; sourceTree = "<group>"; };
 		D4350AD0972E5D3A6B00DA27 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E98B99CE1DC4D2CD00E6A671 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E9F181CE1DC6206500A804B3 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		E9F9372C1DC535AD00BCD682 /* CustomizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizationsViewController.swift; sourceTree = "<group>"; };
 		E9F937301DC5527F00BCD682 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		E9F937311DC5527F00BCD682 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -152,6 +152,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				E9F181CE1DC6206500A804B3 /* .travis.yml */,
 				E98B99CE1DC4D2CD00E6A671 /* Podfile */,
 				C596F9FE4838439B218C5A66 /* PPAssetsActionController.podspec */,
 				B47C426190C4C400F3F7E5FA /* README.md */,
@@ -293,7 +294,6 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				E98B99CF1DC4D2CD00E6A671 /* Podfile in Resources */,
 				E9F937481DC55E2400BCD682 /* Localizable.stringsdict in Resources */,
 				E9F9374B1DC55FAC00BCD682 /* Localizable.stringsdict in Resources */,
 				E9F9373B1DC5585800BCD682 /* Localizable.strings in Resources */,

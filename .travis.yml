@@ -1,14 +1,69 @@
-# references:
-# * http://www.objc.io/issue-6/travis-ci.html
-# * https://github.com/supermarin/xcpretty#usage
+language: Objective-C
+osx_image: xcode8
 
-osx_image: xcode7.3
-language: objective-c
-# cache: cocoapods
-# podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
+cache:
+  - bundler
+  - cocoapods
+
+podfile: ./Example/Podfile
+
+before_install:
+  - bundle
+  - pod repo update --silent
+  - pod install --project-directory=Example
+
+notifications:
+  email: false
+
+env:
+  global:
+    - WORKSPACE=Example/PPAssetsActionController.xcworkspace
+    - SCHEME="PPAssetsActionController-Example"
+    - SCHEME_RUS="PPAssetsActionController_Example_Rus"
+    - SDK_IOS=iphonesimulator10.0
+    - DEST_IOS10="name=iPhone 7,OS=10.0"
+    - DEST_IOS9="name=iPhone 6,OS=9.3"
+    - DEST_IOS8="name=iPhone 6,OS=8.4"
+  matrix:
+    - DESTINATION="$DEST_IOS10" RUN_TESTS="YES" SEND_COVERAGE="YES" POD_LINT="YES" CARTHAGE="NO"  SPM="NO"
+    - DESTINATION="$DEST_IOS9"  RUN_TESTS="NO"  SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="YES" SPM="NO"
+    - DESTINATION="$DEST_IOS8"  RUN_TESTS="NO"  SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"  SPM="YES"
+
 script:
-- set -o pipefail && xcodebuild test -workspace Example/PPAssetsActionController.xcworkspace -scheme PPAssetsActionController-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
+  - set -o pipefail
+
+  - if [ $RUN_TESTS == "YES" ]; then
+      xcodebuild build-for-testing test-without-building -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES | xcpretty -c;
+    else
+      xcodebuild build -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES | xcpretty -c;
+    fi
+
+  - if [ $POD_LINT == "YES" ]; then
+      pod lib lint;
+    fi
+
+  - if [ $CARTHAGE == "YES" ]; then
+      carthage build --no-skip-current;
+    fi
+
+  - if [ $SPM == "YES" ]; then
+      swift build;
+    fi
+
+after_success:
+  - test $SEND_COVERAGE = "YES" && ./.coverage.sh
+
+before_deploy:
+  - carthage build --no-skip-current
+  - carthage archive PPAssetsActionController
+
+deploy:
+  provider: releases
+  api_key:
+    secure: exAoFotLyoulZyzFiMtGoLCvRETao5kWFFUwxXp0g2uYtjLFWTmNK8rhjRltBycaXw+D2J1KcxLX3Rb+9WJlX7h94jtE+fZ01IoEZdEMA5Tiwdw4iq/EhAEMTlUYiJxq+daWTRpAWLo9i7B904GMPawVKUGDeQu4NpMgccRrFg58GKmmDIlJs71nhWE39BwtfNR2c4qaBiA3htwGcPsmSJz2EI268T1fKXHis3mH2OExNTcgLZLVHsva2c/iGNjZHq9LoBQCmM1uw08jFhjyM6dfyYIDzs6YdT/ztri7OtapGb8c8AxlSLTHVsBt+YuifHKEQiIkZ3cqGLsY4e5WzPOefZpgAYmXwumOijez0m6cIKH2tisY+2/8qpaPpZ1d6Too4deLg2dZ4bppdOE9chfF6ICm1SH9yApYmZpZ3QEGw/yez2SLypYVSDVBxR5OF2j5EfY0219sa8ttc92nYwYREI17mA0x3IYGiMCaZ8SO25ySMRudFkky8PKgKqV2KalVMWlJHZcuaG7A3KdGn+7fZ6GKfu98W8BgMECpUCjWW0m5nJ1z1PcpTByXAuyC0oPPsHzccZa1gZnJFW4xwj9x4xns4AQ/6MJk/uP8bToDhUxXXc2YXa8PFJEq36jLBGiPihNp4hg/2kQNQkihtWFAu7LfE0IeqVAYguDW9Sk=
+  file: PPAssetsActionController.framework.zip
+  skip_cleanup: true
+  on:
+    repo: pantuspavel/PPAssetsActionController
+    tags: true
+  condition: $DESTINATION = "$DEST_IOS10"
