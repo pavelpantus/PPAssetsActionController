@@ -29,14 +29,14 @@ extension KIFTestActor {
 class ViewsSpec: QuickSpec {
     override func spec() {
         var window: UIView!
-
+        
         beforeEach {
             window = UIApplication.shared.keyWindow
         }
         afterEach {
             self.tester().tapView(withAccessibilityLabel: "cancel-cell")
         }
-
+        
         describe("Default Configuration, 3 options") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "default-3-options")
@@ -44,7 +44,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().acknowledgeSystemAlert()
                 expect(window).to( haveValidSnapshot() )
             }
-
+            
             it("expanded height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "default-3-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
@@ -53,7 +53,7 @@ class ViewsSpec: QuickSpec {
                 expect(window).to( haveValidSnapshot() )
             }
         }
-
+        
         describe("Default Configuration, no options") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "default-no-options")

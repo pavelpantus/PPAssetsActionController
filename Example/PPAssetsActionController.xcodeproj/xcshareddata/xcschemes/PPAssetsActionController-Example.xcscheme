@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BlueprintIdentifier = "E90649DD1DC63FFD00C1318D"
                BuildableName = "PPAssetsActionController_Tests.xctest"
                BlueprintName = "PPAssetsActionController_Tests"
                ReferencedContainer = "container:PPAssetsActionController.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BlueprintIdentifier = "E90649DD1DC63FFD00C1318D"
                BuildableName = "PPAssetsActionController_Tests.xctest"
                BlueprintName = "PPAssetsActionController_Tests"
                ReferencedContainer = "container:PPAssetsActionController.xcodeproj">
