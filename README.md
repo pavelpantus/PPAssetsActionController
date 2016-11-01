@@ -27,6 +27,78 @@ pod try PPAssetsActionController
 - [CocoaPods](http://cocoapods.org/)
 
 
+## How to use me
+
+It's super easy to start using PPAssetsActionController.
+*Make sure to checkout example project that features quite a few usecases*
+
+All you need to do is:
+```
+import PPAssetsActionController
+
+func presentAssetsActionController() {
+    let assetsPicker = PPAssetsActionController(with: [])
+    present(assetsPicker, animated: true, completion: nil)
+}
+```
+
+
+If you want to present couple of options, you do:
+```
+import PPAssetsActionController
+
+func presentAssetsActionController() {
+    let options = [
+        PPOption(withTitle: option1String) { print("my option 1 callback") },
+        PPOption(withTitle: option2String) { print("my option 2 callback") }
+    ]
+    let assetsPicker = PPAssetsActionController(with: options)
+    present(assetsPicker, animated: true, completion: nil)
+}
+```
+
+
+If you want to know what PPAssetsActionController has to say, become it's delegate:
+```
+import PPAssetsActionController
+
+class CustomizationsViewController: UITableViewController {
+    func presentAssetsActionController() {
+        let options = [
+            PPOption(withTitle: option1String) { print("my option 1 callback") },
+            PPOption(withTitle: option2String) { print("my option 2 callback") }
+        ]
+        let assetsPicker = PPAssetsActionController(with: options)
+        assetsPicker.deelgate = self
+        present(assetsPicker, animated: true, completion: nil)
+    }
+}
+
+extension CustomizationsViewController: PPAssetsActionControllerDelegate {
+    /**
+    Callbacks implementations you're interested in.
+    */
+}
+
+```
+
+
+If you want to customize PPAssetsActionController's appearance or behavior check out `PPAssetsActionConfig` struct and use it like this:
+```
+import PPAssetsActionController
+
+func presentAssetsActionController() {
+    let options = [
+        PPOption(withTitle: option1String) { print("my option 1 callback") },
+        PPOption(withTitle: option2String) { print("my option 2 callback") }
+    ]
+    var config = PPAssetsActionConfig()
+    config.tintColor = UIColor.magenta
+    let assetsPicker = PPAssetsActionController(with: options, aConfig: config)
+    present(assetsPicker, animated: true, completion: nil)
+}
+```
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
