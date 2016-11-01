@@ -9,17 +9,17 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
-## Show me
+## Show me 🎪
 
 ![show-me](https://raw.githubusercontent.com/pantuspavel/PPAssetsActionController/master/Media/PPAssetsActionController.gif)
 
-## Try me
+## Try me 📲
 The easiest way to try me (make sure you read Requirements section first):
 ```ruby
 pod try PPAssetsActionController
 ```
 
-## Requirements
+## Requirements 🖥
 
 - 2 minutes of your time 😲
 - [Xcode 8 or newer](https://developer.apple.com/download/)
@@ -27,7 +27,7 @@ pod try PPAssetsActionController
 - [CocoaPods](http://cocoapods.org/)
 
 
-## How to use me
+## How to use me 🔩
 
 It's super easy to start using PPAssetsActionController.
 
@@ -100,11 +100,23 @@ func presentAssetsActionController() {
 }
 ```
 
-## Example
+
+## Localization 💪
+
+Example project features complete localization to russian language including plurals.
+
+If you want to check it out just run `PPAssetsActionController_Example_Rus` scheme.
+
+For more info I suggest to check out [this nice tutorial](http://crunchybagel.com/localizing-plurals-in-ios-development/) by [Quentin Zervaas](https://github.com/HendX).
+
+The article will put you up to speed with all intricacies of localization in no time.
+
+
+## Example 🚀
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Installation
+## Installation 🤖
 
 PPAssetsActionController is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -120,7 +132,7 @@ Add the following line to your Cartfile:
 github "pantuspavel/PPAssetsActionController"
 ```
 
-## Developer Setup
+## Developer Setup 🤓
 
 To open the project:
 ```bash
@@ -132,10 +144,16 @@ pod install
 open PPAssetsActionController.xcworkspace
 ```
 
-## Author
+## Feedback 👌
+
+Feedback is very welcome. If you have an idea in mind don't hesitate to ping me on twitter [@pantusp](https://twitter.com/pantusp) or here.
+
+Contributions are very welcome and encouraged. If you have something to say file an issue or open a PR to start a conversation going.
+
+## Author 👋
 
 Pavel Pantus, [@pantusp](https://twitter.com/pantusp), pantusp@gmail.com
 
-## License
+## License 📖
 
 PPAssetsActionController is available under the MIT license. See the LICENSE file for more info.
