@@ -42,7 +42,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().tapView(withAccessibilityLabel: "default-3-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().acknowledgeSystemAlert()
-                self.tester().wait(forTimeInterval: 0.5)
+                self.tester().wait(forTimeInterval: 1.0)
                 expect(window).to( haveValidSnapshot() )
             }
             
