@@ -104,9 +104,12 @@ func presentAssetsActionController() {
 ## Localization 💪
 
 Example project features complete localization to russian language including plurals.
-If you want to check it out just run `PPAssetsActionController_Example_Rus` scheme. 
+
+If you want to check it out just run `PPAssetsActionController_Example_Rus` scheme.
+
 For more info I suggest to check out [this nice tutorial](http://crunchybagel.com/localizing-plurals-in-ios-development/) by [Quentin Zervaas](https://github.com/HendX).
-The article will put you up to speed with all intricacies of localization in no time. 
+
+The article will put you up to speed with all intricacies of localization in no time.
 
 
 ## Example 🚀
@@ -143,10 +146,9 @@ open PPAssetsActionController.xcworkspace
 
 ## Feedback 👌
 
-Feedback is very welcome. If you have an idea in mind don't hesitate to ping me
-on twitter [@pantusp](https://twitter.com/pantusp) or here.
-Contributions are very welcome and encouraged. If you have something to say file an issue or
-open a PR to start a conversation going.
+Feedback is very welcome. If you have an idea in mind don't hesitate to ping me on twitter [@pantusp](https://twitter.com/pantusp) or here.
+
+Contributions are very welcome and encouraged. If you have something to say file an issue or open a PR to start a conversation going.
 
 ## Author 👋
 
