@@ -52,8 +52,9 @@ github "pantuspavel/PPAssetsActionController"
 To open the project:
 ```bash
 git clone git@github.com:pantuspavel/PPAssetsActionController.git
+cd PPAssetsActionController
 bundle
-cd PPAssetsActionController/Example
+cd Example
 pod install
 open PPAssetsActionController.xcworkspace
 ```
