@@ -13,12 +13,23 @@
 
 ![show-me](https://raw.githubusercontent.com/pantuspavel/PPAssetsActionController/master/Media/PPAssetsActionController.gif)
 
+## Try me
+The easiest way to try me (make sure you read Requirements section first):
+```ruby
+pod try PPAssetsActionController
+```
+
+## Requirements
+
+- 2 minutes of your time 😲
+- [Xcode 8 or newer](https://developer.apple.com/download/)
+- [Bundler](http://bundler.io/)
+- [CocoaPods](http://cocoapods.org/)
+
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
 
 ## Installation
 
@@ -26,12 +37,30 @@ PPAssetsActionController is available through [CocoaPods](http://cocoapods.org).
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "PPAssetsActionController"
+pod 'PPAssetsActionController'
+```
+
+PPAssetsActionController is also available through [Carthage](https://github.com/Carthage/Carthage).
+Add the following line to your Cartfile:
+
+```ruby
+github "pantuspavel/PPAssetsActionController"
+```
+
+## Developer Setup
+
+To open the project:
+```bash
+git clone git@github.com:pantuspavel/PPAssetsActionController.git
+bundle
+cd PPAssetsActionController/Example
+pod install
+open PPAssetsActionController.xcworkspace
 ```
 
 ## Author
 
-Pavel Pantus, pantusp@gmail.com
+Pavel Pantus, [@pantusp](https://twitter.com/pantusp), pantusp@gmail.com
 
 ## License
 
