@@ -5,6 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/PPAssetsActionController.svg?style=flat)](http://cocoapods.org/pods/PPAssetsActionController)
 [![Platform](https://img.shields.io/cocoapods/p/PPAssetsActionController.svg?style=flat)](http://cocoapods.org/pods/PPAssetsActionController)
 
+## Show me
+
+![show-me](https://raw.githubusercontent.com/pantuspavel/PPAssetsActionController/master/Media/PPAssetsActionController.gif)
+
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
