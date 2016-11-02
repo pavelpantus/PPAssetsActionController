@@ -73,7 +73,7 @@ class CustomizationsViewController: UITableViewController {
             PPOption(withTitle: option2String) { print("my option 2 callback") }
         ]
         let assetsPicker = PPAssetsActionController(with: options)
-        assetsPicker.deelgate = self
+        assetsPicker.delegate = self
         present(assetsPicker, animated: true, completion: nil)
     }
 }
