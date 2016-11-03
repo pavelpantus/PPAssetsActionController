@@ -54,6 +54,7 @@
 		E90649E01DC63FFD00C1318D /* PPAssetsActionController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPAssetsActionController_Tests.swift; sourceTree = "<group>"; };
 		E90649E21DC63FFD00C1318D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E98B99CE1DC4D2CD00E6A671 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E9E85D8D1DCB71EA00C556F6 /* CHANGELOG.md */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; tabWidth = 2; };
 		E9F181CE1DC6206500A804B3 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		E9F9372C1DC535AD00BCD682 /* CustomizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizationsViewController.swift; sourceTree = "<group>"; };
 		E9F937301DC5527F00BCD682 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -90,7 +91,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				607FACF51AFB993E008FA782 /* Metadata */,
 				607FACD21AFB9204008FA782 /* Example for PPAssetsActionController */,
 				E90649DF1DC63FFD00C1318D /* PPAssetsActionController_Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -132,7 +133,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+		607FACF51AFB993E008FA782 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
 				E9F181CE1DC6206500A804B3 /* .travis.yml */,
@@ -140,8 +141,9 @@
 				C596F9FE4838439B218C5A66 /* PPAssetsActionController.podspec */,
 				B47C426190C4C400F3F7E5FA /* README.md */,
 				D4350AD0972E5D3A6B00DA27 /* LICENSE */,
+				E9E85D8D1DCB71EA00C556F6 /* CHANGELOG.md */,
 			);
-			name = "Podspec Metadata";
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 		850D433A7CEE368AEBD5CE42 /* Frameworks */ = {
