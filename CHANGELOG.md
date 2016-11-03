@@ -1,6 +1,6 @@
 ##0.1.1
 * Example project min deployment target to min supported iOS version (8).  
-  [Pavel Pantus](https://github.com/pantuspavel),  [#1](https://github.com/pantuspavel/PPEventRegistryAPI/pull/1)
+  [Pavel Pantus](https://github.com/pantuspavel),  [#15](https://github.com/pantuspavel/PPEventRegistryAPI/pull/15)
 * Carthage support.  
   [Pavel Pantus](https://github.com/pantuspavel)
 * Podspec screenshots correction.  
