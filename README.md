@@ -147,6 +147,10 @@ pod install
 open PPAssetsActionController.xcworkspace
 ```
 
+## Required Info.plist keys 🔑
+
+If you're using PPAssetsActionController on iOS10 you need to declare `NSPhotoLibraryUsageDescription`, `NSMicrophoneUsageDescription`, `NSCameraUsageDescription` keys in your application's Info.plist or your app will crash on launch. For example refer to Example project's Info.plist. For more info read [this article](http://useyourloaf.com/blog/privacy-settings-in-ios-10/).
+
 ## Feedback 👌
 
 Feedback is very welcome. If you have an idea in mind don't hesitate to ping me on twitter [@pantusp](https://twitter.com/pantusp) or here.
