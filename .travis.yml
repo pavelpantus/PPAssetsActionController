@@ -9,7 +9,6 @@ podfile: ./Example/Podfile
 
 before_install:
   - bundle
-  - pod repo update --silent
   - pod install --project-directory=Example
 
 notifications:
