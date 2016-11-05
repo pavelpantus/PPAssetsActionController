@@ -8,6 +8,7 @@ cache:
 podfile: ./Example/Podfile
 
 before_install:
+  - xcrun simctl erase all
   - bundle
   - pod repo update --silent
   - pod install --project-directory=Example
