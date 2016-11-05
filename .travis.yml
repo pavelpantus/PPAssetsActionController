@@ -17,6 +17,10 @@ notifications:
 
 env:
   global:
+    - UPLOAD_IOS_SNAPSHOT_BUCKET_NAME="assetsactioncontroller"
+    - AWS_ACCESS_KEY_ID="$ACCESS_KEY"
+    - AWS_SECRET_ACCESS_KEY="$SECRET_ACCESS"
+    - AWS_REGION="us-east-1"
     - WORKSPACE=Example/PPAssetsActionController.xcworkspace
     - SCHEME="PPAssetsActionController-Example"
     - SCHEME_RUS="PPAssetsActionController_Example_Rus"
@@ -33,7 +37,7 @@ script:
   - set -o pipefail
 
   - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild build-for-testing test-without-building -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES | xcpretty -c;
+      xcodebuild build-for-testing test-without-building -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES | second_curtain | xcpretty -c;
     else
       xcodebuild build -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES | xcpretty -c;
     fi
