@@ -33,9 +33,9 @@ script:
   - set -o pipefail
 
   - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild build-for-testing test-without-building -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES | xcpretty -c;
+      xcodebuild build-for-testing test-without-building -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES;
     else
-      xcodebuild build -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES | xcpretty -c;
+      xcodebuild build -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES;
     fi
 
   - if [ $POD_LINT == "YES" ]; then
