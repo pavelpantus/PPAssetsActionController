@@ -1,4 +1,4 @@
-##0.1.1
+##[0.1.1](https://github.com/pantuspavel/PPAssetsActionController/releases/tag/0.1.1)
 * iOS8 crash fix.  
   [Pavel Pantus](https://github.com/pantuspavel)
 * Example project min deployment target to min supported iOS version (8).  
