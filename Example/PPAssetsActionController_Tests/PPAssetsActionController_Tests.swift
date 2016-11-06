@@ -22,6 +22,12 @@ extension KIFTestActor {
     func system(file : String = #file, _ line : Int = #line) -> KIFSystemTestActor {
         return KIFSystemTestActor(inFile: file, atLine: line, delegate: self)
     }
+
+    func deviceSpecificName(for name: String) -> String {
+        let idiom = UIDevice.current.userInterfaceIdiom == .phone ? "iPhone" : "iPad"
+        let systemVersion = UIDevice.current.systemVersion.components(separatedBy: ".").first! + "x"
+        return name + "_" + idiom + "_" + systemVersion
+    }
 }
 
 
@@ -42,7 +48,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().tapView(withAccessibilityLabel: "default-3-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().acknowledgeSystemAlert()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "3_options_regular")) )
             }
             
             it("expanded height displayed correctly") {
@@ -50,7 +56,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().tapView(withAccessibilityLabel: "asset-0")
                 self.tester().waitForAnimationsToFinish()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "3_options_expanded")) )
             }
         }
         
@@ -58,7 +64,7 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "default-no-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "no_options_regular")) )
             }
             
             it("expanded height displayed correctly") {
@@ -66,7 +72,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().tapView(withAccessibilityLabel: "asset-0")
                 self.tester().waitForAnimationsToFinish()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "no_options_expanded")) )
             }
         }
         
@@ -74,7 +80,7 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-height-3-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_cell_height_regular")) )
             }
             
             it("expanded height displayed correctly") {
@@ -82,7 +88,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().tapView(withAccessibilityLabel: "asset-0")
                 self.tester().waitForAnimationsToFinish()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_cell_height_expanded")) )
             }
         }
         
@@ -90,7 +96,7 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-font-2-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_font_regular")) )
             }
             
             it("expanded height displayed correctly") {
@@ -98,7 +104,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().tapView(withAccessibilityLabel: "asset-0")
                 self.tester().waitForAnimationsToFinish()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_font_expanded")) )
             }
         }
         
@@ -106,7 +112,7 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-preview-height-1-option")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_preview_height_regular")) )
             }
             
             it("expanded height displayed correctly") {
@@ -114,7 +120,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().tapView(withAccessibilityLabel: "asset-0")
                 self.tester().waitForAnimationsToFinish()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_preview_height_expanded")) )
             }
         }
         
@@ -122,7 +128,7 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-inset-4-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_inset_regular")) )
             }
             
             it("expanded height displayed correctly") {
@@ -130,7 +136,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().tapView(withAccessibilityLabel: "asset-0")
                 self.tester().waitForAnimationsToFinish()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_inset_expanded")) )
             }
         }
         
@@ -138,7 +144,7 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-section-spacing-4-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_spacing_regular")) )
             }
             
             it("expanded height displayed correctly") {
@@ -146,7 +152,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().tapView(withAccessibilityLabel: "asset-0")
                 self.tester().waitForAnimationsToFinish()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_spacing_expanded")) )
             }
         }
         
@@ -154,7 +160,7 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-background-color-5-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_background_regular")) )
             }
             
             it("expanded height displayed correctly") {
@@ -162,7 +168,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().tapView(withAccessibilityLabel: "asset-0")
                 self.tester().waitForAnimationsToFinish()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_background_expanded")) )
             }
         }
         
@@ -170,7 +176,7 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-tint-color-5-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_tint_regular")) )
             }
             
             it("expanded height displayed correctly") {
@@ -178,7 +184,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 self.tester().tapView(withAccessibilityLabel: "asset-0")
                 self.tester().waitForAnimationsToFinish()
-                expect(window).to( haveValidSnapshot() )
+                expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_tint_expanded")) )
             }
         }
     }
