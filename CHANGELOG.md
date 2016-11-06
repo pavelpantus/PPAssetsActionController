@@ -1,4 +1,6 @@
 ##0.1.1
+* iOS8 crash fix.  
+  [Pavel Pantus](https://github.com/pantuspavel)
 * Example project min deployment target to min supported iOS version (8).  
   [Pavel Pantus](https://github.com/pantuspavel),  [#15](https://github.com/pantuspavel/PPEventRegistryAPI/pull/15)
 * Carthage support.  
