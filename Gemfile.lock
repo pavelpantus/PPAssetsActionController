@@ -7,6 +7,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    aws-sdk-v1 (1.66.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     claide (1.0.1)
     cocoapods (1.1.1)
       activesupport (>= 4.0.2, < 5)
@@ -47,10 +50,17 @@ GEM
     gh_inspector (1.0.2)
     i18n (0.7.0)
     json (1.8.3)
+    mini_portile2 (2.0.0)
     minitest (5.9.1)
     molinillo (0.5.1)
+    mustache (0.99.8)
     nap (1.1.0)
     netrc (0.7.8)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
+    second_curtain (0.6.0)
+      aws-sdk-v1 (~> 1.52)
+      mustache (~> 0.99)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -64,6 +74,7 @@ PLATFORMS
 
 DEPENDENCIES
   cocoapods (= 1.1.1)
+  second_curtain (~> 0.2)
 
 BUNDLED WITH
    1.12.5
