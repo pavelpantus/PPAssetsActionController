@@ -14,7 +14,7 @@ PODS:
     - FBSnapshotTestCase (~> 2.0)
     - Nimble
     - Quick
-  - PPAssetsActionController (0.1.0)
+  - PPAssetsActionController (0.1.1)
   - Quick (0.10.0)
 
 DEPENDENCIES:
@@ -34,7 +34,7 @@ SPEC CHECKSUMS:
   KIF: 082eb65279e51c3092923802849eb796a04982ab
   Nimble: 5ea121a2eda60440287054cde077fc0ad22227b3
   Nimble-Snapshots: 4ba722c35b73a680cbd856e4bc22076dfb8085d4
-  PPAssetsActionController: 410029cb4c93ed6adaf0b33f4281877041c6ef41
+  PPAssetsActionController: ca72bab9c98f4312f9a1e35649eae3afc7c7209f
   Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
 
 PODFILE CHECKSUM: 5d24b44a2ee23e49ec775e38d1fb1ee76b1a68ce

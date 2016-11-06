@@ -3,7 +3,8 @@ import Photos
 struct PPAssetManager {
     func getImages(offset: Int, count: Int, handler: @escaping ([UIImage]) -> ()) {
         guard authorizationStatus() == .authorized else {
-            return handler([])
+            handler([])
+            return
         }
 
         var assets: [UIImage] = []
