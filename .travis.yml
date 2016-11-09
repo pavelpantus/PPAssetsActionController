@@ -7,8 +7,11 @@ cache:
 
 podfile: ./Example/Podfile
 
+branches:
+  only:
+  - master
+
 before_install:
-  - xcrun simctl erase all
   - bundle
   - pod repo update --silent
   - pod install --project-directory=Example
@@ -31,18 +34,20 @@ env:
     - DEST_IOS9="name=iPhone 6,OS=9.3"
     - DEST_IOS8="name=iPhone 6,OS=8.4"
   matrix:
-    - DESTINATION="$DEST_IOS10" RUN_TESTS="YES" SEND_COVERAGE="YES" POD_LINT="YES" CARTHAGE="NO"
-    - DESTINATION="$DEST_IOS9"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="YES"
-    - DESTINATION="$DEST_IOS8"  RUN_TESTS="NO"  SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
-    - DESTINATION="$DEST_IPAD"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
+    - DEST="$DEST_IOS10" RUN_TESTS="YES" SEND_COVERAGE="YES" POD_LINT="YES" CARTHAGE="NO"
+    - DEST="$DEST_IOS9"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="YES"
+    - DEST="$DEST_IOS8"  RUN_TESTS="NO"  SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
+    - DEST="$DEST_IPAD"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
 
 script:
   - set -o pipefail
 
+  - SIM_UUID=`./.setup_sim.sh "$DEST"`
+
   - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild build-for-testing test-without-building -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES | second_curtain | xcpretty -c;
+      xcodebuild build-for-testing test-without-building -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "id=$SIM_UUID" ONLY_ACTIVE_ARCH=YES | second_curtain | xcpretty -c;
     else
-      xcodebuild build -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=YES | xcpretty -c;
+      xcodebuild build -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK_IOS" -destination "id=$SIM_UUID" ONLY_ACTIVE_ARCH=YES | xcpretty -c;
     fi
 
   - if [ $POD_LINT == "YES" ]; then
