@@ -47,7 +47,12 @@ class ViewsSpec: QuickSpec {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "default-3-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
-                UIAutomationHelper.acknowledgeSystemAlert()
+                if #available(iOS 10.0, *) {
+                    self.tester().acknowledgeSystemAlert()
+                } else {
+                    UIAutomationHelper.acknowledgeSystemAlert()
+                }
+                self.tester().wait(forTimeInterval: 0.5)
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "3_options_regular")) )
             }
             
