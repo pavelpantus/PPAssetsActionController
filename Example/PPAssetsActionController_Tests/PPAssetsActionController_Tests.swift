@@ -52,7 +52,7 @@ class ViewsSpec: QuickSpec {
                 } else {
                     UIAutomationHelper.acknowledgeSystemAlert()
                 }
-                self.tester().wait(forTimeInterval: 0.5)
+                self.tester().wait(forTimeInterval: 1.0)
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "3_options_regular")) )
             }
             
