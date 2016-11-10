@@ -14,6 +14,8 @@ class PPCollectionViewLayout: UICollectionViewLayout {
     override func prepare() {
         super.prepare()
 
+        attributes = []
+
         var origin = CGPoint()
         let itemsCount = itemsInfoProvider.collectionView(collectionView!, numberOfItemsInSection: 0)
 

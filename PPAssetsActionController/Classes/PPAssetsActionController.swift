@@ -244,6 +244,10 @@ extension PPAssetsActionController: PPAssetsViewControllerDelegate {
     func assetsViewController(_ controller: PPAssetsCollectionController, didChange itemsCount: Int) {
         optionsController.set(sendItemsCount: itemsCount)
     }
+
+    func assetsViewControllerDidRequestCameraController(_ controller: PPAssetsCollectionController) {
+        openImagePicker()
+    }
 }
 
 

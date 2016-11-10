@@ -1,7 +1,10 @@
 import UIKit
+import AVFoundation
 
 protocol PPAssetsViewControllerDelegate: class {
     func assetsViewController(_ controller: PPAssetsCollectionController, didChange itemsCount: Int)
+
+    func assetsViewControllerDidRequestCameraController(_ controller: PPAssetsCollectionController)
 }
 
 /**
@@ -17,6 +20,8 @@ class PPAssetsCollectionController: UICollectionViewController {
     fileprivate var assets: [UIImage] = []
     private var selectedItemRows = Set<Int>()
     fileprivate var config: PPAssetsActionConfig!
+    fileprivate var captureSession: AVCaptureSession?
+    fileprivate var captureLayer: AVCaptureVideoPreviewLayer?
     
     public init(aConfig: PPAssetsActionConfig) {
         flowLayout = PPCollectionViewLayout()
@@ -29,6 +34,10 @@ class PPAssetsCollectionController: UICollectionViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    deinit {
+        stopCaptureSession()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +45,9 @@ class PPAssetsCollectionController: UICollectionViewController {
         collectionView?.backgroundColor = UIColor.clear
         
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
+
         collectionView?.register(PPPhotoViewCell.self, forCellWithReuseIdentifier: PPPhotoViewCell.reuseIdentifier)
+        collectionView?.register(PPLiveCameraCell.self, forCellWithReuseIdentifier: PPLiveCameraCell.reuseIdentifier)
 
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.showsHorizontalScrollIndicator = false
@@ -77,6 +88,12 @@ class PPAssetsCollectionController: UICollectionViewController {
         } else {
             self.heightConstraint.constant = 0
         }
+
+        if rowCountForLiveCameraCell() == 1 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.setupCaptureSession()
+            }
+        }
     }
     
     func selectedImages() -> [UIImage] {
@@ -94,27 +111,42 @@ class PPAssetsCollectionController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return assets.count
+        return assets.count + rowCountForLiveCameraCell();
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == 0 && rowCountForLiveCameraCell() == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PPLiveCameraCell.reuseIdentifier, for: indexPath) as! PPLiveCameraCell
+            cell.backgroundColor = UIColor.black
+            cell.accessibilityLabel = PPLiveCameraCell.reuseIdentifier
+            if let layer = captureLayer {
+                cell.set(layer: layer)
+            }
+            return cell
+        }
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PPPhotoViewCell.reuseIdentifier, for: indexPath) as! PPPhotoViewCell
 
         cell.checked.tintColor = config.tintColor
-        cell.set(assets[indexPath.row])
+        cell.set(assets[modifiedRow(for: indexPath.row)])
         if (heightConstraint.constant == config.assetsPreviewExpandedHeight) {
-            cell.set(selected: selectedItemRows.contains(indexPath.row))
+            cell.set(selected: selectedItemRows.contains(modifiedRow(for: indexPath.row)))
         }
-        cell.accessibilityLabel = "asset-\(indexPath.row)"
+        cell.accessibilityLabel = "asset-\(modifiedRow(for: indexPath.row))"
 
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if selectedItemRows.contains(indexPath.row) {
-            selectedItemRows.remove(indexPath.row)
+        if indexPath.row == 0 && rowCountForLiveCameraCell() == 1 {
+            delegate?.assetsViewControllerDidRequestCameraController(self)
+            return
+        }
+
+        if selectedItemRows.contains(modifiedRow(for: indexPath.row)) {
+            selectedItemRows.remove(modifiedRow(for: indexPath.row))
         } else {
-            selectedItemRows.insert(indexPath.row)
+            selectedItemRows.insert(modifiedRow(for: indexPath.row))
         }
         
         delegate?.assetsViewController(self, didChange: selectedItemRows.count)
@@ -143,7 +175,7 @@ class PPAssetsCollectionController: UICollectionViewController {
         } else {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             if let cell = collectionView.cellForItem(at: indexPath) as? PPPhotoViewCell {
-                cell.set(selected: selectedItemRows.contains(indexPath.row))
+                cell.set(selected: selectedItemRows.contains(modifiedRow(for: indexPath.row)))
             }
         }
     }
@@ -161,11 +193,47 @@ class PPAssetsCollectionController: UICollectionViewController {
     }
 }
 
+// MARK: - Camera
+extension PPAssetsCollectionController {
+    func setupCaptureSession() {
+        let defaultDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        if let input = try? AVCaptureDeviceInput(device: defaultDevice) {
+            captureSession = AVCaptureSession()
+            captureSession?.addInput(input)
+            captureLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
+            captureLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            captureSession?.startRunning()
+            collectionView?.reloadData()
+        }
+    }
+
+    func stopCaptureSession() {
+        if let session = captureSession {
+            session.stopRunning()
+            captureSession = nil
+        }
+    }
+}
+
 extension PPAssetsCollectionController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let imageView = UIImageView(image: assets[indexPath.row])
+        if indexPath.row == 0 && rowCountForLiveCameraCell() == 1 {
+            return CGSize(width: heightConstraint.constant, height: heightConstraint.constant)
+        }
+
+        let imageView = UIImageView(image: assets[modifiedRow(for: indexPath.row)])
         imageView.contentMode = .scaleAspectFill
         let factor = heightConstraint.constant / imageView.frame.height
         return CGSize(width: imageView.frame.width * factor, height: heightConstraint.constant)
+    }
+}
+
+extension PPAssetsCollectionController {
+    func modifiedRow(for row: Int) -> Int {
+        return row - (config.showLiveCameraCell ? rowCountForLiveCameraCell() : 0)
+    }
+
+    func rowCountForLiveCameraCell() -> Int {
+        return UIImagePickerController.isSourceTypeAvailable(.camera) ? 1 : 0
     }
 }

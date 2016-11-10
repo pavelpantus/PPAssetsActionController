@@ -38,6 +38,9 @@ public struct PPAssetsActionConfig {
     
     /// Height of each button (Options and Cancel).
     public var buttonHeight: CGFloat = 50.0
+    
+    /// If enabled shows live camera view as a first cell.
+    public var showLiveCameraCell = true
 
     public init() {}
 }
