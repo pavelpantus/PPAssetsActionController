@@ -1,3 +1,7 @@
+##[0.1.2]
+* Fix incorrect callback attribute name tags that prevented callbacks from been called.  
+[Pavel Pantus](https://github.com/pantuspavel)
+
 ##[0.1.1](https://github.com/pantuspavel/PPAssetsActionController/releases/tag/0.1.1)
 * iOS8 crash fix.  
   [Pavel Pantus](https://github.com/pantuspavel)

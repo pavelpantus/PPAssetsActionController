@@ -50,8 +50,8 @@ public protocol PPAssetsActionControllerDelegate: class {
  */
 extension PPAssetsActionControllerDelegate {
     func assetsPickerDidCancel(_ picker: PPAssetsActionController) {}
-    func assetsPicker(_ controller: PPAssetsActionController, snappedImage image: UIImage) {}
-    func assetsPicker(_ controller: PPAssetsActionController, snappedVideo videoURL: URL) {}
+    func assetsPicker(_ controller: PPAssetsActionController, didSnapImage image: UIImage) {}
+    func assetsPicker(_ controller: PPAssetsActionController, didSnapVideo videoURL: URL) {}
     func assetsPicker(_ controller: PPAssetsActionController, didFinishPicking images: [UIImage]) {}
 }
 
@@ -362,9 +362,9 @@ extension PPAssetsActionController: UIImagePickerControllerDelegate, UINavigatio
         
         dismiss(animated: true) {
             if let image = image {
-                self.delegate?.assetsPicker(self, snappedImage: image)
+                self.delegate?.assetsPicker(self, didSnapImage: image)
             } else if let videoURL = videoURL {
-                self.delegate?.assetsPicker(self, snappedVideo: videoURL)
+                self.delegate?.assetsPicker(self, didSnapVideo: videoURL)
             }
         }
     }
