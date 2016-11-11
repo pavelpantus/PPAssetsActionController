@@ -1,6 +1,6 @@
 ##[0.1.2]
 * Add live camera cell in collection view.  
-  [Pavel Pantus](https://github.com/pantuspavel),  [#xx](https://github.com/pantuspavel/PPEventRegistryAPI/pull/xx)
+  [Pavel Pantus](https://github.com/pantuspavel),  [#21](https://github.com/pantuspavel/PPEventRegistryAPI/pull/21)
 * Fix incorrect callback attribute name tags that prevented callbacks from been called.  
   [Pavel Pantus](https://github.com/pantuspavel)
 
