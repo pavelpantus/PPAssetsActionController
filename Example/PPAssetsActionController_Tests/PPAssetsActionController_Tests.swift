@@ -48,7 +48,7 @@ class ViewsSpec: QuickSpec {
                 self.tester().tapView(withAccessibilityLabel: "default-3-options")
                 self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
                 UIAutomationHelper.acknowledgeSystemAlert()
-                self.tester().wait(forTimeInterval: 1.0)
+                self.tester().waitForView(withAccessibilityLabel: "asset-0")
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "3_options_regular")) )
             }
             
@@ -64,7 +64,7 @@ class ViewsSpec: QuickSpec {
         describe("Default Configuration, no options") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "default-no-options")
-                self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
+                self.tester().waitForView(withAccessibilityLabel: "asset-0")
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "no_options_regular")) )
             }
             
@@ -80,7 +80,7 @@ class ViewsSpec: QuickSpec {
         describe("Custom Cell Height, 3 options") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-height-3-options")
-                self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
+                self.tester().waitForView(withAccessibilityLabel: "asset-0")
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_cell_height_regular")) )
             }
             
@@ -96,7 +96,7 @@ class ViewsSpec: QuickSpec {
         describe("Custom Font, 2 options") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-font-2-options")
-                self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
+                self.tester().waitForView(withAccessibilityLabel: "asset-0")
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_font_regular")) )
             }
             
@@ -112,7 +112,7 @@ class ViewsSpec: QuickSpec {
         describe("Custom Preview Height, 1 option") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-preview-height-1-option")
-                self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
+                self.tester().waitForView(withAccessibilityLabel: "asset-0")
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_preview_height_regular")) )
             }
             
@@ -128,7 +128,7 @@ class ViewsSpec: QuickSpec {
         describe("Custom Inset, 4 options") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-inset-4-options")
-                self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
+                self.tester().waitForView(withAccessibilityLabel: "asset-0")
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_inset_regular")) )
             }
             
@@ -144,7 +144,7 @@ class ViewsSpec: QuickSpec {
         describe("Custom Section Spacing, 4 options") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-section-spacing-4-options")
-                self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
+                self.tester().waitForView(withAccessibilityLabel: "asset-0")
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_spacing_regular")) )
             }
             
@@ -160,7 +160,7 @@ class ViewsSpec: QuickSpec {
         describe("Custom Background Color, 5 options") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-background-color-5-options")
-                self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
+                self.tester().waitForView(withAccessibilityLabel: "asset-0")
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_background_regular")) )
             }
             
@@ -176,7 +176,7 @@ class ViewsSpec: QuickSpec {
         describe("Custom Tint Color, 5 options") {
             it("regular height displayed correctly") {
                 self.tester().tapView(withAccessibilityLabel: "custom-tint-color-5-options")
-                self.tester().waitForView(withAccessibilityLabel: "assets-action-view")
+                self.tester().waitForView(withAccessibilityLabel: "asset-0")
                 expect(window).to( haveValidSnapshot(named: self.tester().deviceSpecificName(for: "custom_tint_regular")) )
             }
             
