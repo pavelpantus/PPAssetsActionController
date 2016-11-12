@@ -147,6 +147,17 @@ pod install
 open PPAssetsActionController.xcworkspace
 ```
 
+## Tests 🐛
+
+To run automation tests you need to set up simulator and load assets first.
+```bash
+cd PPAssetsActionController
+.setup_sim.sh "name=iPad Air 2,OS=10.0" // See setup_sim.sh to discover all supported simulators.
+```
+When script finished go to Xcode and select just created simulator (`assets-vs-ipad-ios10` for iPad version).
+
+Press command+U, enjoy!
+
 ## Required Info.plist keys 🔑
 
 If you're using PPAssetsActionController on iOS10 you need to declare `NSPhotoLibraryUsageDescription`, `NSMicrophoneUsageDescription`, `NSCameraUsageDescription` keys in your application's Info.plist or your app will crash on launch. For example refer to Example project's Info.plist. For more info read [this article](http://useyourloaf.com/blog/privacy-settings-in-ios-10/).
