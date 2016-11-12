@@ -158,13 +158,16 @@ extension CustomizationsViewController: PPAssetsActionControllerDelegate {
     
     func assetsPicker(_ controller: PPAssetsActionController, didFinishPicking images: [UIImage]) {
         dismiss(animated: true, completion: nil)
+        print("assetsPicker didFinishPicking with \(images)")
     }
     
     func assetsPicker(_ controller: PPAssetsActionController, didSnapImage image: UIImage) {
         dismiss(animated: true, completion: nil)
+        print("assetsPicker didSnapImage with \(image)")
     }
     
     func assetsPicker(_ controller: PPAssetsActionController, didSnapVideo videoURL: URL) {
         dismiss(animated: true, completion: nil)
+        print("assetsPicker didSnapVideo with \(videoURL)")
     }
 }
