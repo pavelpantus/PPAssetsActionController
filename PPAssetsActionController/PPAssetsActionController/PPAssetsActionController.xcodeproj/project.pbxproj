@@ -16,6 +16,7 @@
 		E9064A0E1DC779CE00C1318D /* PPOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9064A051DC779CE00C1318D /* PPOption.swift */; };
 		E9064A0F1DC779CE00C1318D /* PPOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9064A061DC779CE00C1318D /* PPOptionsViewController.swift */; };
 		E9064A101DC779CE00C1318D /* PPPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9064A071DC779CE00C1318D /* PPPhotoViewCell.swift */; };
+		E98E167B1DD6061400612857 /* PPLiveCameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98E167A1DD6061400612857 /* PPLiveCameraCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E9064A051DC779CE00C1318D /* PPOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPOption.swift; sourceTree = "<group>"; };
 		E9064A061DC779CE00C1318D /* PPOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPOptionsViewController.swift; sourceTree = "<group>"; };
 		E9064A071DC779CE00C1318D /* PPPhotoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPhotoViewCell.swift; sourceTree = "<group>"; };
+		E98E167A1DD6061400612857 /* PPLiveCameraCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPLiveCameraCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		E90649FF1DC779CE00C1318D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E98E167A1DD6061400612857 /* PPLiveCameraCell.swift */,
 				E9064A001DC779CE00C1318D /* PPAssetManager.swift */,
 				E9064A011DC779CE00C1318D /* PPAssetsActionConfig.swift */,
 				E9064A021DC779CE00C1318D /* PPAssetsActionController.swift */,
@@ -179,6 +182,7 @@
 				E9064A0F1DC779CE00C1318D /* PPOptionsViewController.swift in Sources */,
 				E9064A0A1DC779CE00C1318D /* PPAssetsActionConfig.swift in Sources */,
 				E9064A101DC779CE00C1318D /* PPPhotoViewCell.swift in Sources */,
+				E98E167B1DD6061400612857 /* PPLiveCameraCell.swift in Sources */,
 				E9064A0B1DC779CE00C1318D /* PPAssetsActionController.swift in Sources */,
 				E9064A091DC779CE00C1318D /* PPAssetManager.swift in Sources */,
 			);

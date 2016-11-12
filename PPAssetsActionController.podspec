@@ -20,5 +20,5 @@ User can control every aspect of PPAssetsActionController's style.
   s.source_files = 'PPAssetsActionController/Classes/**/*'
   s.resource = 'PPAssetsActionController/Assets/*.xcassets'
 
-  s.frameworks = 'UIKit', 'MobileCoreServices', 'Photos'
+  s.frameworks = 'UIKit', 'MobileCoreServices', 'Photos', 'AVFoundation'
 end
