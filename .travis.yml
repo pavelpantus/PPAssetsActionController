@@ -7,10 +7,6 @@ cache:
 
 podfile: ./Example/Podfile
 
-branches:
-  only:
-  - master
-
 before_install:
   - bundle
   - pod repo update --silent
