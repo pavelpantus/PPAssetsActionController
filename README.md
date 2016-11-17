@@ -152,7 +152,7 @@ open PPAssetsActionController.xcworkspace
 To run automation tests you need to set up simulator and load assets first.
 ```bash
 cd PPAssetsActionController
-.setup_sim.sh "name=iPad Air 2,OS=10.0" // See setup_sim.sh to discover all supported simulators.
+.setup_sim.sh "name=iPad Air 2,OS=10.1" // See setup_sim.sh to discover all supported simulators.
 ```
 When script finished go to Xcode and select just created simulator (`assets-vs-ipad-ios10` for iPad version).
 
