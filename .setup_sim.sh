@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Let's create new simulator.
-if [ "$1" == "name=iPad Air 2,OS=10.0" ]
+if [ "$1" == "name=iPad Air 2,OS=10.1" ]
 then
-  SIM_UUID=`xcrun simctl create assets-vc-ipad-ios10 com.apple.CoreSimulator.SimDeviceType.iPad-Air-2 com.apple.CoreSimulator.SimRuntime.iOS-10-0`
-elif [ "$1" == "name=iPhone 6,OS=10.0" ]
+  SIM_UUID=`xcrun simctl create assets-vc-ipad-ios10 com.apple.CoreSimulator.SimDeviceType.iPad-Air-2 com.apple.CoreSimulator.SimRuntime.iOS-10-1`
+elif [ "$1" == "name=iPhone 6,OS=10.1" ]
 then
-  SIM_UUID=`xcrun simctl create assets-vc-iphone-ios10 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-10-0`
+  SIM_UUID=`xcrun simctl create assets-vc-iphone-ios10 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-10-1`
 elif [ "$1" == "name=iPhone 6,OS=9.3" ]
 then
   SIM_UUID=`xcrun simctl create assets-vc-iphone-ios9 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-9-3`
