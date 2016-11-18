@@ -107,15 +107,15 @@ public class PPAssetsActionController: UIViewController {
         assetsContainer.layer.cornerRadius = 5.0
         view.addSubview(assetsContainer)
 
-        let bottomCornersFeeler = UIView()
-        bottomCornersFeeler.backgroundColor = assetsContainer.backgroundColor
-        bottomCornersFeeler.translatesAutoresizingMaskIntoConstraints = false
-        assetsContainer.addSubview(bottomCornersFeeler)
+        let bottomCornersFiller = UIView()
+        bottomCornersFiller.backgroundColor = assetsContainer.backgroundColor
+        bottomCornersFiller.translatesAutoresizingMaskIntoConstraints = false
+        assetsContainer.addSubview(bottomCornersFiller)
 
         let assetsSeparator = UIView()
         assetsSeparator.translatesAutoresizingMaskIntoConstraints = false
         assetsSeparator.backgroundColor = optionsController.tableView!.separatorColor
-        bottomCornersFeeler.addSubview(assetsSeparator)
+        bottomCornersFiller.addSubview(assetsSeparator)
 
         assetsController.willMove(toParentViewController: self)
         addChildViewController(assetsController)
@@ -130,7 +130,7 @@ public class PPAssetsActionController: UIViewController {
         let views: [String : Any] = ["options": optionsController.tableView!,
                                      "assets": assetsController.collectionView!,
                                      "assetsContainer": assetsContainer,
-                                     "feeler": bottomCornersFeeler,
+                                     "filler": bottomCornersFiller,
                                      "assetsSeparator": assetsSeparator]
         
         let si: CGFloat
@@ -171,35 +171,35 @@ public class PPAssetsActionController: UIViewController {
         shownPositionConstraint.isActive = false
         view.addConstraint(foldedPositionConstraint)
         assetsContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-ACM-[assets]-ACM-|",
-                                                                      options: NSLayoutFormatOptions(rawValue: 0),
+                                                                      options: [],
                                                                       metrics: metrics,
                                                                       views: views))
         assetsContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-ACM-[assets]-ACM-|",
-                                                                      options: NSLayoutFormatOptions(rawValue: 0),
+                                                                      options: [],
                                                                       metrics: metrics,
                                                                       views: views))
-        assetsContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[feeler]|",
-                                                                      options: NSLayoutFormatOptions(rawValue: 0),
+        assetsContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[filler]|",
+                                                                      options: [],
                                                                       metrics: metrics,
                                                                       views: views))
-        assetsContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[feeler(ACM)]|",
-                                                                      options: NSLayoutFormatOptions(rawValue: 0),
+        assetsContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[filler(ACM)]|",
+                                                                      options: [],
                                                                       metrics: metrics,
                                                                       views: views))
-        bottomCornersFeeler.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-SI-[assetsSeparator]-SI-|",
-                                                                          options: NSLayoutFormatOptions(rawValue: 0),
+        bottomCornersFiller.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-SI-[assetsSeparator]-SI-|",
+                                                                          options: [],
                                                                           metrics: metrics,
                                                                           views: views))
-        bottomCornersFeeler.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[assetsSeparator(MLW)]|",
-                                                                          options: NSLayoutFormatOptions(rawValue: 0),
+        bottomCornersFiller.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[assetsSeparator(MLW)]|",
+                                                                          options: [],
                                                                           metrics: metrics,
                                                                           views: views))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-M-[assetsContainer]-M-|",
-                                                           options: NSLayoutFormatOptions(rawValue: 0),
+                                                           options: [],
                                                            metrics: metrics,
                                                            views: views))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-M-[options]-M-|",
-                                                           options: NSLayoutFormatOptions(rawValue: 0),
+                                                           options: [],
                                                            metrics: metrics,
                                                            views: views))
     }
@@ -316,11 +316,11 @@ extension PPAssetsActionController: UIViewControllerAnimatedTransitioning {
             containerView.addSubview(view)
 
             containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|",
-                                                                        options: NSLayoutFormatOptions(rawValue: 0),
+                                                                        options: [],
                                                                         metrics: nil,
                                                                         views: views))
             containerView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|",
-                                                                        options: NSLayoutFormatOptions(rawValue: 0),
+                                                                        options: [],
                                                                         metrics: nil,
                                                                         views: views))
             containerView.setNeedsLayout()
