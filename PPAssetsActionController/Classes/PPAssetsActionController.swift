@@ -254,7 +254,7 @@ extension PPAssetsActionController: PPAssetsViewControllerDelegate {
 // MARK: UIGestureRecognizerDelegate
 
 /**
- Handle tap on a background view to dismiss the picket view controller.
+ Handle tap on a background view to dismiss the picker view controller.
  */
 extension PPAssetsActionController: UIGestureRecognizerDelegate {
     @objc fileprivate func handleBackgroundTap(recognizer: UITapGestureRecognizer) {
