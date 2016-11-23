@@ -1,7 +1,10 @@
 import UIKit
 import AVFoundation
 
-class PPLiveCameraCell: UICollectionViewCell, PPReusableView {
+/**
+ Cell representing live camera feed in Assets Collection Controller.
+ */
+class PPLiveCameraCell: UICollectionViewCell {
 
     func set(layer: AVCaptureVideoPreviewLayer) {
         layer.frame = bounds
@@ -12,3 +15,5 @@ class PPLiveCameraCell: UICollectionViewCell, PPReusableView {
         self.layer.sublayers?[0].frame = bounds
     }
 }
+
+extension PPLiveCameraCell: PPReusableView {}
