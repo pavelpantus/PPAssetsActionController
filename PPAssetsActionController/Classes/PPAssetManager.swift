@@ -1,21 +1,16 @@
 import Photos
 
 struct PPAssetManager {
-    func getImages(offset: Int, count: Int, handler: @escaping ([UIImage]) -> ()) {
+    
+    /// Returns images only.
+    func getImages(offset: Int, count: Int, handler: @escaping ([MediaProvider]) -> ()) {
         guard authorizationStatus() == .authorized else {
             handler([])
             return
         }
 
-        let fetchOptions = PHFetchOptions()
-        if #available(iOS 9.0, *) {
-            fetchOptions.fetchLimit = offset + count
-        }
-        fetchOptions.wantsIncrementalChangeDetails = false
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
+        let result = PHAsset.fetchAssets(with: .image, options: getFetchOptions(offset, count))
 
-        let result = PHAsset.fetchAssets(with: .image,
-                                         options: fetchOptions)
         /**
          Ok, here goes some magic! ✨🙀👀
          requestImageData is async and can return in random order.
@@ -26,7 +21,7 @@ struct PPAssetManager {
          By doing this I preserve the order. Screenshots matcher is happy and so am I! 🍻
          */
         let placeholder = UIImage(named: "checked", in: Bundle(for: PPAssetsActionController.classForCoder()), compatibleWith: nil)!
-        var assets = Array(repeating: placeholder, count: result.count)
+        var assets = Array(repeating: AnyPPAsset(placeholder), count: result.count)
 
         var counter = 0
         result.enumerateObjects(
@@ -36,7 +31,7 @@ struct PPAssetManager {
             { imageData, dataUTI, orientation, info in
                 imageData.map {
                     if let image = UIImage(data: $0) {
-                        assets[index] = image
+                        assets[index] = AnyPPAsset(image)
                     }
                     counter += 1
                     if (counter == result.count) {
@@ -45,6 +40,20 @@ struct PPAssetManager {
                 }
             }
         })
+    }
+
+    /// Returns images and videos.
+    func getAssets(offset: Int, count: Int, handler: @escaping ([UIImage]) -> ()) {
+    }
+    
+    func getFetchOptions(_ offset: Int, _ count: Int) -> PHFetchOptions {
+        let fetchOptions = PHFetchOptions()
+        if #available(iOS 9.0, *) {
+            fetchOptions.fetchLimit = offset + count
+        }
+        fetchOptions.wantsIncrementalChangeDetails = false
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
+        return fetchOptions
     }
 
     func requestAuthorization(_ handler: @escaping (PHAuthorizationStatus) -> Void) {

@@ -39,9 +39,9 @@ public protocol PPAssetsActionControllerDelegate: class {
      Implementation is optional.
      - Parameters:
         - picker: Current picker controller.
-        - images: Images that were selected with Preview Picker.
+        - assets: Assets that were selected with Preview Picker.
      */
-    func assetsPicker(_ picker: PPAssetsActionController, didFinishPicking images: [UIImage])
+    func assetsPicker(_ picker: PPAssetsActionController, didFinishPicking assets: [MediaProvider])
 }
 
 
@@ -50,9 +50,9 @@ public protocol PPAssetsActionControllerDelegate: class {
  */
 extension PPAssetsActionControllerDelegate {
     func assetsPickerDidCancel(_ picker: PPAssetsActionController) {}
-    func assetsPicker(_ controller: PPAssetsActionController, didSnapImage image: UIImage) {}
-    func assetsPicker(_ controller: PPAssetsActionController, didSnapVideo videoURL: URL) {}
-    func assetsPicker(_ controller: PPAssetsActionController, didFinishPicking images: [UIImage]) {}
+    func assetsPicker(_ picker: PPAssetsActionController, didSnapImage image: UIImage) {}
+    func assetsPicker(_ picker: PPAssetsActionController, didSnapVideo videoURL: URL) {}
+    func assetsPicker(_ picker: PPAssetsActionController, didFinishPicking assets: [MediaProvider]) {}
 }
 
 
@@ -228,9 +228,9 @@ extension PPAssetsActionController: PPOptionsViewControllerDelegate {
     }
     
     func optionsViewControllerDidRequestTopOption(_ controller: PPOptionsViewController) {
-        let selectedImages = assetsController.selectedImages()
-        if selectedImages.count > 0 {
-            delegate?.assetsPicker(self, didFinishPicking: selectedImages)
+        let selectedMedia = assetsController.selectedMedia()
+        if selectedMedia.count > 0 {
+            delegate?.assetsPicker(self, didFinishPicking: selectedMedia)
         } else {
             openImagePicker()
         }

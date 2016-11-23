@@ -17,7 +17,7 @@ class PPAssetsCollectionController: UICollectionViewController {
     private var flowLayout: PPCollectionViewLayout!
     fileprivate var heightConstraint: NSLayoutConstraint!
     private let assetManager = PPAssetManager()
-    fileprivate var assets: [UIImage] = []
+    fileprivate var assets: [MediaProvider] = []
     private var selectedItemRows = Set<Int>()
     fileprivate var config: PPAssetsActionConfig!
     fileprivate var captureSession: AVCaptureSession?
@@ -96,12 +96,12 @@ class PPAssetsCollectionController: UICollectionViewController {
         }
     }
     
-    func selectedImages() -> [UIImage] {
-        var selectedImages: [UIImage] = []
+    func selectedMedia() -> [MediaProvider] {
+        var selectedMedia: [MediaProvider] = []
         for selectedRow in selectedItemRows {
-            selectedImages.append(assets[selectedRow])
+            selectedMedia.append(assets[selectedRow])
         }
-        return selectedImages
+        return selectedMedia
     }
 
     // MARK: UICollectionViewDataSource
@@ -125,13 +125,25 @@ class PPAssetsCollectionController: UICollectionViewController {
             return cell
         }
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PPPhotoViewCell.reuseIdentifier, for: indexPath) as! PPPhotoViewCell
+        let mediaProvider = assets[modifiedRow(for: indexPath.row)]
+        var cell: UICollectionViewCell!
 
-        cell.checked.tintColor = config.tintColor
-        cell.set(assets[modifiedRow(for: indexPath.row)])
-        if (heightConstraint.constant == config.assetsPreviewExpandedHeight) {
-            cell.set(selected: selectedItemRows.contains(modifiedRow(for: indexPath.row)))
+        if let video = mediaProvider.video() {
+            let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PPPhotoViewCell.reuseIdentifier, for: indexPath) as! PPVideoViewCell
+
+            cell = videoCell
+        } else if let image = mediaProvider.image() {
+            let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PPPhotoViewCell.reuseIdentifier, for: indexPath) as! PPPhotoViewCell
+
+            photoCell.checked.tintColor = config.tintColor
+            photoCell.set(image)
+            if (heightConstraint.constant == config.assetsPreviewExpandedHeight) {
+                photoCell.set(selected: selectedItemRows.contains(modifiedRow(for: indexPath.row)))
+            }
+
+            cell = photoCell
         }
+
         cell.accessibilityLabel = "asset-\(modifiedRow(for: indexPath.row))"
 
         return cell
@@ -221,7 +233,7 @@ extension PPAssetsCollectionController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: heightConstraint.constant, height: heightConstraint.constant)
         }
 
-        let imageView = UIImageView(image: assets[modifiedRow(for: indexPath.row)])
+        let imageView = UIImageView(image: assets[modifiedRow(for: indexPath.row)].image()!)
         imageView.contentMode = .scaleAspectFill
         let factor = heightConstraint.constant / imageView.frame.height
         return CGSize(width: imageView.frame.width * factor, height: heightConstraint.constant)

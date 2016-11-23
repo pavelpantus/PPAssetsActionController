@@ -156,9 +156,9 @@ extension CustomizationsViewController: PPAssetsActionControllerDelegate {
         print("assetsPickerDidCancel")
     }
     
-    func assetsPicker(_ controller: PPAssetsActionController, didFinishPicking images: [UIImage]) {
+    func assetsPicker(_ controller: PPAssetsActionController, didFinishPicking media: [MediaProvider]) {
         dismiss(animated: true, completion: nil)
-        print("assetsPicker didFinishPicking with \(images)")
+        print("assetsPicker didFinishPicking with \(media)")
     }
     
     func assetsPicker(_ controller: PPAssetsActionController, didSnapImage image: UIImage) {
