@@ -97,11 +97,7 @@ class PPAssetsCollectionController: UICollectionViewController {
     }
     
     func selectedMedia() -> [MediaProvider] {
-        var selectedMedia: [MediaProvider] = []
-        for selectedRow in selectedItemRows {
-            selectedMedia.append(assets[selectedRow])
-        }
-        return selectedMedia
+        return selectedItemRows.map { assets[$0] }
     }
 
     // MARK: UICollectionViewDataSource
