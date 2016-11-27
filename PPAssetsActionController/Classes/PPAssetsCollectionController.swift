@@ -22,6 +22,7 @@ class PPAssetsCollectionController: UICollectionViewController {
     fileprivate var config: PPAssetsActionConfig!
     fileprivate var captureSession: AVCaptureSession?
     fileprivate var captureLayer: AVCaptureVideoPreviewLayer?
+    fileprivate let cameraIsAvailable = UIImagePickerController.isSourceTypeAvailable(.camera)
     
     public init(aConfig: PPAssetsActionConfig) {
         flowLayout = PPCollectionViewLayout()
@@ -47,6 +48,7 @@ class PPAssetsCollectionController: UICollectionViewController {
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
 
         collectionView?.register(PPPhotoViewCell.self, forCellWithReuseIdentifier: PPPhotoViewCell.reuseIdentifier)
+        collectionView?.register(PPVideoViewCell.self, forCellWithReuseIdentifier: PPVideoViewCell.reuseIdentifier)
         collectionView?.register(PPLiveCameraCell.self, forCellWithReuseIdentifier: PPLiveCameraCell.reuseIdentifier)
 
         collectionView?.showsVerticalScrollIndicator = false
@@ -64,7 +66,7 @@ class PPAssetsCollectionController: UICollectionViewController {
         self.flowLayout.viewWidth = self.view!.frame.width
 
         let requestImages = {
-            self.assetManager.getImages(offset: 0, count: 20)
+            self.assetManager.getAssets(offset: 0, count: 20, imagesOnly: !self.config.showVideos)
             { assets in
                 if assets.count > 0 {
                     self.assets = assets
@@ -122,24 +124,31 @@ class PPAssetsCollectionController: UICollectionViewController {
         }
 
         let mediaProvider = assets[modifiedRow(for: indexPath.row)]
-        var cell: UICollectionViewCell!
+        var cell: PPCheckedViewCell!
 
         if let video = mediaProvider.video() {
-            let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PPPhotoViewCell.reuseIdentifier, for: indexPath) as! PPVideoViewCell
+            let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PPVideoViewCell.reuseIdentifier, for: indexPath) as! PPVideoViewCell
+
+            let item = AVPlayerItem(asset: video)
+            let player = AVPlayer(playerItem: item)
+            player.volume = 0.0
+            let playerLayer = AVPlayerLayer(player: player)
+
+            videoCell.set(mediaProvider.image()!, playerLayer)
 
             cell = videoCell
         } else if let image = mediaProvider.image() {
             let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PPPhotoViewCell.reuseIdentifier, for: indexPath) as! PPPhotoViewCell
 
-            photoCell.checked.tintColor = config.tintColor
             photoCell.set(image)
-            if (heightConstraint.constant == config.assetsPreviewExpandedHeight) {
-                photoCell.set(selected: selectedItemRows.contains(modifiedRow(for: indexPath.row)))
-            }
 
             cell = photoCell
         }
 
+        cell.checked.tintColor = config.tintColor
+        if (heightConstraint.constant == config.assetsPreviewExpandedHeight) {
+            cell.set(selected: selectedItemRows.contains(modifiedRow(for: indexPath.row)))
+        }
         cell.accessibilityLabel = "asset-\(modifiedRow(for: indexPath.row))"
 
         return cell
@@ -190,13 +199,23 @@ class PPAssetsCollectionController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if (indexPath.row == assets.count - 2) {
-            self.assetManager.getImages(offset: assets.count, count: 20)
+            self.assetManager.getAssets(offset: assets.count, count: 20, imagesOnly: !config.showVideos)
             { assets in
                 if assets.count > self.assets.count {
                     self.assets = assets
                     self.collectionView?.reloadData()
                 }
             }
+        }
+
+        if let videoCell = cell as? PPVideoViewCell {
+            videoCell.startVideo()
+        }
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let videoCell = cell as? PPVideoViewCell {
+            videoCell.stopVideo()
         }
     }
 }
@@ -242,6 +261,6 @@ extension PPAssetsCollectionController {
     }
 
     func rowCountForLiveCameraCell() -> Int {
-        return UIImagePickerController.isSourceTypeAvailable(.camera) ? 1 : 0
+        return cameraIsAvailable ? 1 : 0
     }
 }

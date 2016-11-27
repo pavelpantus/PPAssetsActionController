@@ -31,6 +31,8 @@ class CustomizationsViewController: UITableViewController {
             handleBackgroundColor5Options()
         case 8:
             handleCustomTintColor5Options()
+        case 9:
+            handleDefault3OptionsNoVideos()
         default: break
         }
     }
@@ -149,6 +151,19 @@ extension CustomizationsViewController {
         assetsPicker.delegate = self
         present(assetsPicker, animated: true, completion: nil)
     }
+
+    func handleDefault3OptionsNoVideos() {
+        let options = [
+            PPOption(withTitle: option1String) { print("my option 1 callback") },
+            PPOption(withTitle: option2String) { print("my option 2 callback") },
+            PPOption(withTitle: option3String) { print("my option 3 callback") }
+        ]
+        var config = PPAssetsActionConfig()
+        config.showVideos = false
+        let assetsPicker = PPAssetsActionController(with: options, aConfig: config)
+        assetsPicker.delegate = self
+        present(assetsPicker, animated: true, completion: nil)
+    }
 }
 
 extension CustomizationsViewController: PPAssetsActionControllerDelegate {
@@ -156,17 +171,17 @@ extension CustomizationsViewController: PPAssetsActionControllerDelegate {
         print("assetsPickerDidCancel")
     }
     
-    func assetsPicker(_ controller: PPAssetsActionController, didFinishPicking media: [MediaProvider]) {
+    func assetsPicker(_ picker: PPAssetsActionController, didFinishPicking media: [MediaProvider]) {
         dismiss(animated: true, completion: nil)
         print("assetsPicker didFinishPicking with \(media)")
     }
     
-    func assetsPicker(_ controller: PPAssetsActionController, didSnapImage image: UIImage) {
+    func assetsPicker(_ picker: PPAssetsActionController, didSnapImage image: UIImage) {
         dismiss(animated: true, completion: nil)
         print("assetsPicker didSnapImage with \(image)")
     }
     
-    func assetsPicker(_ controller: PPAssetsActionController, didSnapVideo videoURL: URL) {
+    func assetsPicker(_ picker: PPAssetsActionController, didSnapVideo videoURL: URL) {
         dismiss(animated: true, completion: nil)
         print("assetsPicker didSnapVideo with \(videoURL)")
     }
