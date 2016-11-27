@@ -1,5 +1,6 @@
 import Foundation
 import AVFoundation
+import UIKit
 
 /**
  Protocol representation of types of media that asset can provide.
