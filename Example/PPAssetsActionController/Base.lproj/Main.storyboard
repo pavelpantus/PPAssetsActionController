@@ -199,7 +199,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <accessibility key="accessibilityConfiguration" label="custom-tint-color-5-options"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
