@@ -1,4 +1,6 @@
 ##[0.3.1]
+* Autoplayed video cells.  
+  [Pavel Pantus](https://github.com/pantuspavel),  [#29](https://github.com/pantuspavel/PPEventRegistryAPI/pull/29)
 * Eliminate retain cycle that prevents assets from releasing.  
   [Pavel Pantus](https://github.com/pantuspavel),  [#30](https://github.com/pantuspavel/PPEventRegistryAPI/pull/30)
 
