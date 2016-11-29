@@ -6,7 +6,7 @@ import UIKit
 class PPCollectionViewLayout: UICollectionViewLayout {
     public var viewWidth: CGFloat = 0.0
     public var spacing: CGFloat = 6.0
-    public var itemsInfoProvider: (UICollectionViewDataSource & UICollectionViewDelegateFlowLayout)!
+    public weak var itemsInfoProvider: (UICollectionViewDataSource & UICollectionViewDelegateFlowLayout)!
 
     private var attributes: [UICollectionViewLayoutAttributes] = []
     private var contentSize = CGSize.zero
