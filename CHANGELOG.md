@@ -1,3 +1,7 @@
+##[0.3.1]
+* Eliminate retain cycle that prevents assets from releasing.  
+  [Pavel Pantus](https://github.com/pantuspavel),  [#xx](https://github.com/pantuspavel/PPEventRegistryAPI/pull/xx)
+
 ##[0.2.1](https://github.com/pantuspavel/PPAssetsActionController/releases/tag/0.2.1)
 * Add live camera cell in collection view.  
   [Pavel Pantus](https://github.com/pantuspavel),  [#21](https://github.com/pantuspavel/PPEventRegistryAPI/pull/21)
