@@ -41,6 +41,9 @@ public struct PPAssetsActionConfig {
     
     /// If enabled shows live camera view as a first cell.
     public var showLiveCameraCell = true
+    
+    /// If enabled shows videos in Assets Collection Controller and autoplays them.
+    public var showVideos = true
 
     public init() {}
 }
