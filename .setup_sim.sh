@@ -19,13 +19,13 @@ xcrun simctl boot $SIM_UUID
 
 # Let's add some assets to a newly created simulator.
 xcrun simctl addphoto $SIM_UUID ./Media/1.jpg
-sleep 1
+sleep 2
 xcrun simctl addphoto $SIM_UUID ./Media/2.jpg
-sleep 1
+sleep 2
 xcrun simctl addphoto $SIM_UUID ./Media/3.jpg
-sleep 1
+sleep 2
 xcrun simctl addphoto $SIM_UUID ./Media/4.jpg
-sleep 1
+sleep 2
 xcrun simctl addphoto $SIM_UUID ./Media/5.jpg
 
 # I had trouble running tests if simulator was previously booted,
