@@ -1,5 +1,5 @@
 language: Objective-C
-osx_image: xcode8
+osx_image: xcode8.1
 
 cache:
   - bundler
@@ -24,15 +24,15 @@ env:
     - WORKSPACE=Example/PPAssetsActionController.xcworkspace
     - SCHEME="PPAssetsActionController-Example"
     - SCHEME_RUS="PPAssetsActionController_Example_Rus"
-    - SDK_IOS=iphonesimulator10.0
-    - DEST_IPAD="name=iPad Air 2,OS=10.0"
-    - DEST_IOS10="name=iPhone 6,OS=10.0"
+    - SDK_IOS=iphonesimulator10.1
+    - DEST_IPAD="name=iPad Air 2,OS=10.1"
+    - DEST_IOS10="name=iPhone 6,OS=10.1"
     - DEST_IOS9="name=iPhone 6,OS=9.3"
     - DEST_IOS8="name=iPhone 6,OS=8.4"
   matrix:
     - DEST="$DEST_IOS10" RUN_TESTS="YES" SEND_COVERAGE="YES" POD_LINT="YES" CARTHAGE="NO"
     - DEST="$DEST_IOS9"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="YES"
-    - DEST="$DEST_IOS8"  RUN_TESTS="NO"  SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
+    - DEST="$DEST_IOS8"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
     - DEST="$DEST_IPAD"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
 
 script:
