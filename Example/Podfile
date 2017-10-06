@@ -1,5 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
+platform :ios, '8.0'
+
 use_frameworks!
 
 def assets_picker
@@ -17,5 +19,5 @@ target 'PPAssetsActionController_Tests' do
   pod 'Quick'
   pod 'Nimble'
   pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots'
+  pod 'Nimble-Snapshots', :git => 'git@github.com:danielsaidi/Nimble-Snapshots.git', :branch => 'swift4'
 end

@@ -97,7 +97,7 @@ public class PPAssetsActionController: UIViewController {
         super.viewDidLoad()
         
         view.accessibilityLabel = "assets-action-view"
-        view.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+        view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleBackgroundTap(recognizer:)))
         tapRecognizer.delegate = self
         view.addGestureRecognizer(tapRecognizer)
@@ -134,12 +134,13 @@ public class PPAssetsActionController: UIViewController {
                                      "assetsSeparator": assetsSeparator]
         
         let si: CGFloat
-        if #available(iOS 10.0, *) {
-            si = 0
-        } else if #available(iOS 9.0, *) {
+
+        if #available(iOS 9.0, *) {
             si = 8.0
-        } else {
+        } else if #available(iOS 8.0, *) {
             si = 15.0
+        } else {
+            si = 0.0
         }
         
         let metrics = ["M": config.inset,

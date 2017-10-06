@@ -1,3 +1,7 @@
+## [0.3.2](https://github.com/pantuspavel/PPAssetsActionController/releases/tag/0.3.2)
+* Update project for Xcode 9 and Swift 4.
+  [Pavel Pantus](https://github.com/pantuspavel),  [#31](https://github.com/pantuspavel/PPAssetsActionController/pull/31
+
 ## [0.3.1](https://github.com/pantuspavel/PPAssetsActionController/releases/tag/0.3.1)
 * Autoplayed video cells.  
   [Pavel Pantus](https://github.com/pantuspavel),  [#29](https://github.com/pantuspavel/PPAssetsActionController/pull/29)

@@ -4,39 +4,46 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - KIF (3.5.1):
-    - KIF/Core (= 3.5.1)
-  - KIF/Core (3.5.1)
-  - Nimble (5.1.0)
-  - Nimble-Snapshots (4.3.0):
-    - Nimble-Snapshots/Core (= 4.3.0)
-  - Nimble-Snapshots/Core (4.3.0):
+  - KIF (3.6.0):
+    - KIF/Core (= 3.6.0)
+  - KIF/Core (3.6.0)
+  - Nimble (7.0.2)
+  - Nimble-Snapshots (6.2.2):
+    - Nimble-Snapshots/Core (= 6.2.2)
+  - Nimble-Snapshots/Core (6.2.2):
     - FBSnapshotTestCase (~> 2.0)
-    - Nimble
-    - Quick
-  - PPAssetsActionController (0.2.1)
-  - Quick (0.10.0)
+    - Nimble (~> 7.0)
+  - PPAssetsActionController (0.3.1)
+  - Quick (1.2.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
   - KIF
   - Nimble
-  - Nimble-Snapshots
+  - Nimble-Snapshots (from `git@github.com:danielsaidi/Nimble-Snapshots.git`, branch `swift4`)
   - PPAssetsActionController (from `../`)
   - Quick
 
 EXTERNAL SOURCES:
+  Nimble-Snapshots:
+    :branch: swift4
+    :git: git@github.com:danielsaidi/Nimble-Snapshots.git
   PPAssetsActionController:
-    :path: "../"
+    :path: ../
+
+CHECKOUT OPTIONS:
+  Nimble-Snapshots:
+    :commit: a263dec20cd3a741c51ff286e2a9919994f68b6f
+    :git: git@github.com:danielsaidi/Nimble-Snapshots.git
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  KIF: 082eb65279e51c3092923802849eb796a04982ab
-  Nimble: 5ea121a2eda60440287054cde077fc0ad22227b3
-  Nimble-Snapshots: 4ba722c35b73a680cbd856e4bc22076dfb8085d4
-  PPAssetsActionController: 3619859cb4257efc4bd071f3a8ff0f5a21fb563d
-  Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
+  KIF: bd770edd8ce49bc7308501e4871e58a02d137be3
+  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
+  Nimble-Snapshots: f23ae8cb1d0f3c743b634d3cee3f7da2252cd40a
+  PPAssetsActionController: 8a1766b67b21da75207a138a59fea1fce0575462
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
 
-PODFILE CHECKSUM: 5d24b44a2ee23e49ec775e38d1fb1ee76b1a68ce
+PODFILE CHECKSUM: 86d67d3d5b453d29897f52a7502516752afb260b
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.4.0.beta.1
