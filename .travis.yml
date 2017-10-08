@@ -8,6 +8,7 @@ cache:
 podfile: ./Example/Podfile
 
 before_install:
+  - rvm install "ruby-2.3.0"
   - bundle
   - pod repo update --silent
   - pod install --project-directory=Example
