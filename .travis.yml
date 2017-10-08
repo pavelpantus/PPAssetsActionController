@@ -9,6 +9,7 @@ podfile: ./Example/Podfile
 
 before_install:
   - rvm install "ruby-2.3.0"
+  - rvm use 2.3.0
   - bundle
   - pod install --repo-update --project-directory=Example
 
