@@ -8,9 +8,9 @@ PODS:
     - KIF/Core (= 3.6.0)
   - KIF/Core (3.6.0)
   - Nimble (7.0.2)
-  - Nimble-Snapshots (6.2.2):
-    - Nimble-Snapshots/Core (= 6.2.2)
-  - Nimble-Snapshots/Core (6.2.2):
+  - Nimble-Snapshots (6.3.0):
+    - Nimble-Snapshots/Core (= 6.3.0)
+  - Nimble-Snapshots/Core (6.3.0):
     - FBSnapshotTestCase (~> 2.0)
     - Nimble (~> 7.0)
   - PPAssetsActionController (0.3.1)
@@ -20,30 +20,22 @@ DEPENDENCIES:
   - FBSnapshotTestCase
   - KIF
   - Nimble
-  - Nimble-Snapshots (from `git@github.com:danielsaidi/Nimble-Snapshots.git`, branch `swift4`)
+  - Nimble-Snapshots
   - PPAssetsActionController (from `../`)
   - Quick
 
 EXTERNAL SOURCES:
-  Nimble-Snapshots:
-    :branch: swift4
-    :git: git@github.com:danielsaidi/Nimble-Snapshots.git
   PPAssetsActionController:
     :path: ../
-
-CHECKOUT OPTIONS:
-  Nimble-Snapshots:
-    :commit: a263dec20cd3a741c51ff286e2a9919994f68b6f
-    :git: git@github.com:danielsaidi/Nimble-Snapshots.git
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   KIF: bd770edd8ce49bc7308501e4871e58a02d137be3
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
-  Nimble-Snapshots: f23ae8cb1d0f3c743b634d3cee3f7da2252cd40a
+  Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
   PPAssetsActionController: 8a1766b67b21da75207a138a59fea1fce0575462
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
 
-PODFILE CHECKSUM: 86d67d3d5b453d29897f52a7502516752afb260b
+PODFILE CHECKSUM: 2a9500fa871bb86ddba1c6121ed6f8228a8436d5
 
 COCOAPODS: 1.4.0.beta.1

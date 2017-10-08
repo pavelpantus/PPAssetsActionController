@@ -19,5 +19,5 @@ target 'PPAssetsActionController_Tests' do
   pod 'Quick'
   pod 'Nimble'
   pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots', :git => 'git@github.com:danielsaidi/Nimble-Snapshots.git', :branch => 'swift4'
+  pod 'Nimble-Snapshots'
 end
