@@ -78,7 +78,10 @@ PLATFORMS
 
 DEPENDENCIES
   cocoapods (= 1.4.0.beta.1)
-  second_curtain (~> 0.2)
+  second_curtain
+
+RUBY VERSION
+   ruby 2.3.0p0
 
 BUNDLED WITH
-   1.14.6
+   1.15.4
