@@ -25,9 +25,9 @@ env:
     - SCHEME="PPAssetsActionController-Example"
     - SCHEME_RUS="PPAssetsActionController_Example_Rus"
     - SDK_IOS=iphonesimulator11.0
-    - DEST_IPAD="name=iPad Air 2,OS=10.1"
+    - DEST_IPAD="name=iPad Air 2,OS=10.2"
     - DEST_IOS11="name=iPhone 6,OS=11.0"
-    - DEST_IOS10="name=iPhone 6,OS=10.1"
+    - DEST_IOS10="name=iPhone 6,OS=10.2"
     - DEST_IOS9="name=iPhone 6,OS=9.3"
     - DEST_IOS8="name=iPhone 6,OS=8.4"
   matrix:
