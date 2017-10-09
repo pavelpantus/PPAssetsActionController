@@ -60,6 +60,7 @@ GEM
     netrc (0.7.8)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    rouge (1.11.0)
     ruby-macho (1.1.0)
     second_curtain (0.6.0)
       aws-sdk-v1 (~> 1.52)
@@ -72,6 +73,8 @@ GEM
       claide (>= 1.0.2, < 2.0)
       colored2 (~> 3.1)
       nanaimo (~> 0.2.3)
+    xcpretty (0.2.2)
+      rouge (~> 1.8)
 
 PLATFORMS
   ruby
@@ -79,6 +82,7 @@ PLATFORMS
 DEPENDENCIES
   cocoapods (= 1.4.0.beta.1)
   second_curtain
+  xcpretty
 
 RUBY VERSION
    ruby 2.3.0p0
