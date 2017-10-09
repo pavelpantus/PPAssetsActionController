@@ -27,13 +27,13 @@ sleep 5
 # Let's add some assets to a newly created simulator.
 xcrun simctl addmedia booted ./Media/a.JPG
 sleep 2
-xcrun simctl addmedia booted ./Media/b.JPG
+xcrun simctl addmedia booted ./Media/a.JPG
 sleep 2
-xcrun simctl addmedia booted ./Media/c.JPG
+xcrun simctl addmedia booted ./Media/a.JPG
 sleep 2
-xcrun simctl addmedia booted ./Media/d.JPG
+xcrun simctl addmedia booted ./Media/a.JPG
 sleep 2
-xcrun simctl addmedia booted ./Media/e.JPG
+xcrun simctl addmedia booted ./Media/a.JPG
 
 # I had trouble running tests if simulator was previously booted,
 # so let's make Xcode happy and shutdown the sim.
