@@ -17,8 +17,12 @@ else
   SIM_UUID=`xcrun simctl create assets-vc-iphone-ios8 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-8-4`
 fi
 
+sleep 5
+
 # To add a photo you need to load the simulator
 xcrun simctl boot $SIM_UUID
+
+sleep 5
 
 # Let's add some assets to a newly created simulator.
 xcrun simctl addmedia booted ./Media/1.JPG
