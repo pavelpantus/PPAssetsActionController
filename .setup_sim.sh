@@ -25,15 +25,15 @@ xcrun simctl boot $SIM_UUID
 sleep 5
 
 # Let's add some assets to a newly created simulator.
-xcrun simctl addmedia booted ./Media/1.JPG
+xcrun simctl addmedia booted ./Media/a.JPG
 sleep 2
-xcrun simctl addmedia booted ./Media/2.JPG
+xcrun simctl addmedia booted ./Media/b.JPG
 sleep 2
-xcrun simctl addmedia booted ./Media/3.JPG
+xcrun simctl addmedia booted ./Media/c.JPG
 sleep 2
-xcrun simctl addmedia booted ./Media/4.JPG
+xcrun simctl addmedia booted ./Media/d.JPG
 sleep 2
-xcrun simctl addmedia booted ./Media/5.JPG
+xcrun simctl addmedia booted ./Media/e.JPG
 
 # I had trouble running tests if simulator was previously booted,
 # so let's make Xcode happy and shutdown the sim.
