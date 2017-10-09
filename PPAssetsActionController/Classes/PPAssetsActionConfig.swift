@@ -31,7 +31,7 @@ public struct PPAssetsActionConfig {
     public var sectionSpacing: CGFloat = 16.0
     
     /// Background color of Assets View Controller.
-    public var backgroundColor = UIColor(colorLiteralRed: 0.0, green: 0.0, blue: 0.0, alpha: 0.35)
+    public var backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.35)
     
     /// In and Out animation duration.
     public var animationDuration: TimeInterval = 0.5

@@ -1,5 +1,5 @@
 language: Objective-C
-osx_image: xcode8.1
+osx_image: xcode9
 
 cache:
   - bundler
@@ -8,9 +8,10 @@ cache:
 podfile: ./Example/Podfile
 
 before_install:
+  - rvm install "ruby-2.3.0"
+  - rvm use 2.3.0
   - bundle
-  - pod repo update --silent
-  - pod install --project-directory=Example
+  - pod install --repo-update --project-directory=Example
 
 notifications:
   email: false
@@ -24,14 +25,16 @@ env:
     - WORKSPACE=Example/PPAssetsActionController.xcworkspace
     - SCHEME="PPAssetsActionController-Example"
     - SCHEME_RUS="PPAssetsActionController_Example_Rus"
-    - SDK_IOS=iphonesimulator10.1
-    - DEST_IPAD="name=iPad Air 2,OS=10.1"
-    - DEST_IOS10="name=iPhone 6,OS=10.1"
+    - SDK_IOS=iphonesimulator11.0
+    - DEST_IPAD="name=iPad Air 2,OS=10.2"
+    - DEST_IOS11="name=iPhone 6,OS=11.0"
+    - DEST_IOS10="name=iPhone 6,OS=10.2"
     - DEST_IOS9="name=iPhone 6,OS=9.3"
     - DEST_IOS8="name=iPhone 6,OS=8.4"
   matrix:
-    - DEST="$DEST_IOS10" RUN_TESTS="YES" SEND_COVERAGE="YES" POD_LINT="YES" CARTHAGE="NO"
-    - DEST="$DEST_IOS9"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="YES"
+    - DEST="$DEST_IOS11" RUN_TESTS="YES" SEND_COVERAGE="YES" POD_LINT="YES" CARTHAGE="NO"
+    - DEST="$DEST_IOS10" RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="YES"
+    - DEST="$DEST_IOS9"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
     - DEST="$DEST_IOS8"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
     - DEST="$DEST_IPAD"  RUN_TESTS="YES" SEND_COVERAGE="NO"  POD_LINT="NO"  CARTHAGE="NO"
 
@@ -47,7 +50,7 @@ script:
     fi
 
   - if [ $POD_LINT == "YES" ]; then
-      pod lib lint;
+      pod lib lint --swift-version=4.0;
     fi
 
   - if [ $CARTHAGE == "YES" ]; then

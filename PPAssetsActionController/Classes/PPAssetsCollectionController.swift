@@ -223,12 +223,12 @@ class PPAssetsCollectionController: UICollectionViewController {
 // MARK: - Camera
 extension PPAssetsCollectionController {
     func setupCaptureSession() {
-        let defaultDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        if let input = try? AVCaptureDeviceInput(device: defaultDevice) {
+        let defaultDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        if let input = try? AVCaptureDeviceInput(device: defaultDevice!) {
             captureSession = AVCaptureSession()
             captureSession?.addInput(input)
             captureLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-            captureLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            captureLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             captureSession?.startRunning()
             collectionView?.reloadData()
         }

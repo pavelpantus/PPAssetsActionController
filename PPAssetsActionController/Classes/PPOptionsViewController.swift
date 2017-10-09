@@ -41,11 +41,15 @@ class PPOptionsViewController: UITableViewController {
         tableView.backgroundColor = UIColor.clear
         tableView.bounces = false
 
-        if #available(iOS 10.0, *) {
-            tableView.separatorInset = UIEdgeInsets.zero
-        } else if #available(iOS 9.0, *) {
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+
+        tableView.separatorInset = UIEdgeInsets.zero
+
+        if #available(iOS 9.0, *) {
             tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8.0)
-        } else {
+        } else if #available(iOS 8.0, *) {
             tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 15.0)
         }
 
