@@ -50,7 +50,7 @@ script:
     fi
 
   - if [ $POD_LINT == "YES" ]; then
-      pod lib lint;
+      pod lib lint --swift-version=4.0;
     fi
 
   - if [ $CARTHAGE == "YES" ]; then

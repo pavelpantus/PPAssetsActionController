@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PPAssetsActionController'
-  s.version          = '0.3.1'
+  s.version          = '0.3.2'
   s.summary          = 'Highly customizable Action Sheet Controller with Assets Preview.'
   s.description      = <<-DESC
 Highly customizable, easy to use Action Sheet Controller which shows previews of assets.
